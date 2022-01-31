@@ -436,9 +436,9 @@ def process_item(dirpath, item, getbirth):
     if os.path.islink(fname) and status.st_size > 0:
         mode = mode + " -> " + os.readlink(fname)
     if sys.version_info < (2, 7, 0):
-        mtime = "%14.3f" % (status.mtime)
-        atime = "%14.3f" % (status.atime)
-        ctime = "%14.3f" % (status.ctime)
+        mtime = "%14.3f" % (status.st_mtime)
+        atime = "%14.3f" % (status.st_atime)
+        ctime = "%14.3f" % (status.st_ctime)
     else:
         mtime = "{:14.3f}".format(status.st_mtime)
         atime = "{:14.3f}".format(status.st_atime)
